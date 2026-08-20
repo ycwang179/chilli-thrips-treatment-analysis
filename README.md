@@ -14,7 +14,7 @@ The dashboard provides an interactive way to explore the data, statistical resul
 - Treatment severity trajectories over time
 - Linear mixed-effects modeling
 - Model diagnostics
-- Treatment-by-time interaction
+- Treatment-by-time interaction analysis
 - Treatment-vs-Control comparisons
 - Pretreatment-to-Day-28 improvement analysis
 - Simulation-based power and sample-size planning
@@ -22,17 +22,33 @@ The dashboard provides an interactive way to explore the data, statistical resul
 
 ## Statistical Approach
 
-The primary model is a linear mixed-effects model:
+The primary analysis uses a linear mixed-effects model:
 
 `Severity ~ Treatment * Time + Row + Column + (1 | Plot)`
 
 The plot is treated as the experimental unit because treatments were assigned at the plot level, with repeated measurements collected over time.
 
+The model accounts for:
+
+- Treatment differences
+- Changes over time
+- Treatment-by-time interaction
+- Row and column effects
+- Correlation among repeated measurements from the same plot
+
 ## Interactive Dashboard
 
-You can explore the live dashboard here:
+[View Interactive Dashboard](https://rentalsurvey.shinyapps.io/chilli-thrips-treatment-analysis/)
 
-https://rentalsurvey.shinyapps.io/chilli-thrips-treatment-analysis/
+The interactive dashboard provides additional details on exploratory analysis, model results, diagnostics, treatment comparisons, and exploratory future-study planning.
+
+## Future Study Planning
+
+The dashboard includes an exploratory simulation-based power analysis to examine how the number of independent plots per treatment may affect statistical power in a future study.
+
+Because treatment was assigned at the plot level, sample size refers to the number of independent plots per treatment rather than the number of individual plants or repeated measurements.
+
+The power analysis is intended as an exploratory planning tool rather than a formal sample-size recommendation.
 
 ## Tools
 
@@ -43,11 +59,21 @@ https://rentalsurvey.shinyapps.io/chilli-thrips-treatment-analysis/
 - emmeans
 - ggplot2
 
-## Notes
+## Project Purpose
 
-The analysis is intended to demonstrate a statistical consulting workflow, including exploratory analysis, mixed-effects modeling, interpretation, diagnostics, and exploratory future-study planning.
+This project demonstrates a statistical consulting workflow, including:
+
+- Understanding the experimental design
+- Identifying the appropriate experimental unit
+- Exploring the data before modeling
+- Selecting and fitting a repeated-measures model
+- Evaluating model assumptions
+- Interpreting treatment effects and interactions
+- Communicating statistical uncertainty
+- Planning future studies
 
 ## Author
 
-Yu-Chun Wang  
-Statistical Science | Data Analysis | R | Python
+**Yu-Chun Wang**  
+Ph.D. in Statistical Science  
+George Mason University
